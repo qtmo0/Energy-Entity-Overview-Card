@@ -1,4 +1,4 @@
-# Energy Entity Overview Card
+# button-card — Generic Toggle Card
 
 A reusable, fully configurable `custom:button-card` for Home Assistant that toggles a switch entity and displays up to four sensor values in the subtitle. Fully configurable via variables — no code changes needed. Supports dynamic background color when a sensor threshold is exceeded, on/off icon states, and an optional native HA confirmation dialog before toggling.
 
@@ -30,13 +30,20 @@ A reusable, fully configurable `custom:button-card` for Home Assistant that togg
 
 ## Configuration
 
-All options are set via the `variables` block — no code changes needed.
+The toggle entity is set directly on the card via the top-level `entity` field. All other options are configured via the `variables` block — no code changes needed.
+
+### Card Entity
+
+```yaml
+entity: switch.my_switch  # The entity to toggle on tap
+```
+
+The card reads its own `entity` state directly — no `entity_toggle` variable needed.
 
 ### Variables Reference
 
 | Variable | Type | Required | Default | Description |
 |---|---|---|---|---|
-| `entity_toggle` | `entity_id` | ✅ | — | Entity to toggle on tap |
 | `entity_value_1` | `entity_id` | ✅ | — | Primary sensor to display |
 | `entity_value_2` | `entity_id` \| `null` | ❌ | `null` | Second sensor (omit with `null`) |
 | `entity_value_3` | `entity_id` \| `null` | ❌ | `null` | Third sensor (omit with `null`) |
@@ -67,8 +74,8 @@ All options are set via the `variables` block — no code changes needed.
 ### Basic — single sensor, no confirmation
 
 ```yaml
+entity: switch.my_switch
 variables:
-  entity_toggle: switch.my_switch
   entity_value_1: sensor.my_power
   entity_value_2: null
   entity_value_3: null
@@ -90,8 +97,8 @@ variables:
 ### Advanced — 4 sensors, with confirmation
 
 ```yaml
+entity: switch.tasmota_mk4
 variables:
-  entity_toggle: switch.tasmota_mk4
   entity_value_1: sensor.tasmota_mk4_energy_power
   entity_value_2: sensor.prusalink_nozzle_temperature
   entity_value_3: sensor.prusalink_heatbed_temperature
@@ -124,7 +131,7 @@ variables:
 
 ### Icon
 - Displays the configured `mdi:` icon in a rounded square
-- Background and icon color reflect the on/off state of `entity_toggle`
+- Background and icon color reflect the on/off state of the card `entity`
 
 ### Subtitle
 - Up to 4 sensor values joined by `·`
@@ -143,6 +150,7 @@ variables:
 
 ## Notes
 
+- The toggle entity is set via the top-level `entity` field, not via variables
 - Set unused sensor variables to `null` to hide them
 - `threshold_entity` can be the same as `entity_value_1` or any other sensor
 - All colors must be hex strings (e.g. `"#97BE5A"`)
