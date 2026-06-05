@@ -16,12 +16,9 @@ A reusable, fully configurable `custom:button-card` for Home Assistant that togg
 
 ## Preview
 
-```
-┌─────────────────────────────┐
-│  [icon]  Card Name          │
-│          123 W · 210°C · …  │
-└─────────────────────────────┘
-```
+![Card in default state](https://raw.githubusercontent.com/qtmo0/Energy-Entity-Overview-Card/main/screenshot_1.png)
+
+![Card with threshold background active](https://raw.githubusercontent.com/qtmo0/Energy-Entity-Overview-Card/main/screenshot_2.png)
 
 ---
 
@@ -118,6 +115,8 @@ variables:
   confirmation_enabled: true
   confirmation_text: Prusa MK4 wirklich schalten?
 ```
+
+![Card with confirmation dialog](https://raw.githubusercontent.com/qtmo0/Energy-Entity-Overview-Card/main/screenshot_3.png)
 
 ---
 
