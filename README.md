@@ -1,4 +1,4 @@
-# button-card — Generic Toggle Card
+# Energy-Entity-Overview-Card
 
 A reusable, fully configurable `custom:button-card` for Home Assistant that toggles a switch entity and displays up to four sensor values in the subtitle. Fully configurable via variables — no code changes needed. Supports dynamic background color when a sensor threshold is exceeded, on/off icon states, and an optional native HA confirmation dialog before toggling.
 
