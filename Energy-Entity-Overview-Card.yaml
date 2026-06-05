@@ -1,13 +1,11 @@
 type: custom:button-card
+# ── Target entity to toggle on tap ─────────────────────────
 entity: switch.tasmota_mk4
 show_name: false
 show_state: false
 show_icon: false
 variables:
-  # ── Target entity to toggle on tap ─────────────────────────
-  entity_toggle: switch.tasmota_mk4
-
-  # ── Up to 4 sensor values displayed in the subtitle ────────
+  # ── Up to 4 sensor values displayed in the subtitle (min 1)
   entity_value_1: sensor.tasmota_mk4_energy_power
   entity_value_2: sensor.prusalink_nozzle_temperature
   entity_value_3: sensor.prusalink_heatbed_temperature
@@ -27,7 +25,7 @@ variables:
   unit_3: "°C"
   unit_4: "°C"
 
-  # ── Decimal places for each sensor value (default: 1) ──────
+  # ── Decimal places for each sensor value ───────────────────
   decimals_1: 0
   decimals_2: 0
   decimals_3: 0
