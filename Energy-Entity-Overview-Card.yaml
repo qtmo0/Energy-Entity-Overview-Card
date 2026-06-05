@@ -5,7 +5,7 @@ show_name: false
 show_state: false
 show_icon: false
 variables:
-  # ── Up to 4 sensor values displayed in the subtitle (min 1)
+  # ── Up to 4 sensor values displayed in subtitle (min 1) ───
   entity_value_1: sensor.tasmota_mk4_energy_power
   entity_value_2: sensor.prusalink_nozzle_temperature
   entity_value_3: sensor.prusalink_heatbed_temperature
@@ -20,7 +20,7 @@ variables:
   card_name: Prusa MK4
 
   # ── Units appended to each sensor value ────────────────────
-  unit_1: W
+  unit_1: " W"
   unit_2: "°C"
   unit_3: "°C"
   unit_4: "°C"
@@ -100,7 +100,7 @@ custom_fields:
         const d = (decimals !== undefined && decimals !== null) ? decimals : 1;
         const num = parseFloat(val);
         const formatted = isNaN(num) ? val : num.toFixed(d);
-        return unit ? `${formatted} ${unit}` : formatted;
+        return unit ? `${formatted}${unit}` : formatted;
       }
 
       const display1 = fmt(v1, variables.unit_1, variables.decimals_1);
