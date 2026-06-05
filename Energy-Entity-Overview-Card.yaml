@@ -91,7 +91,7 @@ custom_fields:
       const v4 = variables.entity_value_4 ? states[variables.entity_value_4]?.state : null;
 
       // ── Determine toggle state ────────────────────────────────
-      const toggleState = states[variables.entity_toggle]?.state;
+      const toggleState = entity.state;
       const isOn = toggleState === 'on';
 
       // ── Format a sensor value with unit and decimal places ────
